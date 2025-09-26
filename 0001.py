@@ -1,8 +1,12 @@
-f_name='ahmed';
-s_name='salem';
-date_of_birth =2005;
-age=2025-date_of_birth;
-print(f_name);
-print(s_name);
-print(date_of_birth);
-print(age);
+f_name="ahmed"
+l_name="salem"
+gpa=3.7
+date_of_pirth=2005
+age=2025-date_of_pirth
+print(f_name)
+print(l_name)
+print(gpa)
+print(date_of_pirth)
+print(age)
+
+
