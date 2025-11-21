@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>مبوبة بسيطة</title>
+    <style>
+         :root {
+            --bg: #f6f7fb;
+            --card: #fff;
+            --accent: #0b84ff;
+            --muted: #6b7280;
+        }
+        
+        * {
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            background: var(--bg);
+            color: #111;
+        }
+        
+        .container {
+            max-width: 980px;
+            margin: 28px auto;
+            padding: 18px;
+        }
+        
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 18px;
+        }
+        
+        header h1 {
+            margin: 0;
+            font-size: 20px;
+        }
+        
+        .top-actions {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+        
+        .card {
+            background: var(--card);
+            border-radius: 10px;
+            box-shadow: 0 6px 18px rgba(12, 20, 50, 0.06);
+            padding: 14px;
+        }
+        
+        form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+        
+        label {
+            display: block;
+            font-size: 13px;
+            margin-bottom: 6px;
+            color: var(--muted);
+        }
+        
+        input[type="text"],
+        input[type="number"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #e6e9ef;
+            font-size: 14px;
+        }
+        
+        textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+        
+        button {
+            background: var(--accent);
+            color: white;
+            padding: 10px 14px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .secondary {
+            background: #eef3ff;
+            color: var(--accent);
+            border: 1px solid rgba(11, 132, 255, 0.12);
+        }
+        
+        .controls {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+        
+        .search {
+            padding: 8px;
+            border-radius: 8px;
+            border: 1px solid #e6e9ef;
+        }
+        
+        .list {
+            margin-top: 18px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 12px;
+        }
+        
+        .ad {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding: 12px;
+            border-radius: 10px;
+            background: linear-gradient(180deg, #fff, #fbfdff);
+            border: 1px solid #f0f3fb;
+        }
+        
+        .ad img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        
+        .ad h3 {
+            margin: 0;
+            font-size: 16px;
+        }
+        
+        .meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+            color: var(--muted);
+        }
+        
+        .price {
+            font-weight: 700;
+            color: #0b6bff;
+        }
+        
+        .actions {
+            display: flex;
+            gap: 6px;
+        }
+        
+        .actions button {
+            padding: 6px 8px;
+            font-size: 13px;
+        }
+        
+        @media (max-width: 720px) {
+            form {
+                grid-template-columns: 1fr;
+            }
+            .top-actions {
+                flex-direction: column;
+                align-items: flex-end;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>مبوبة بسيطة</h1>
+            <div class="top-actions">
+                <div class="controls card" style="padding: 8px; display: flex; gap: 8px; align-items: center">
+                    <input id="searchInput" class="search" placeholder="ابحث عن اعلان..." />
+                    <select id="filterCategory">
+              <option value="all">All sections</option>
+              <option value="عقارات">عقارات</option>
+              <option value="الكترونيات">الكترونيات</option>
+              <option value="وظائف">وظائف</option>
+              <option value="مركبات">مركبات</option>
+              <option value="متنوع">متنوع</option>
+            </select>
+                    <button id="clearBtn" class="secondary">مسح الكل</button>
+                </div>
+            </div>
+        </header>
+
+        <section class="card">
+            <h2 style="margin-top: 0">إنشاء إعلان جديد</h2>
+            <form id="adForm">
+                <div>
+                    <label>العنوان</label>
+                    <input type="text" id="title" required placeholder="مثال: هاتف سامسونج للبيع" />
+                </div>
+                <div>
+                    <label>القسم</label>
+                    <select id="category">
+              <option value="الكترونيات">الكترونيات</option>
+              <option value="عقارات">عقارات</option>
+              <option value="وظائف">وظائف</option>
+              <option value="مركبات">مركبات</option>
+              <option value="متنوع">متنوع</option>
+            </select>
+                </div>
+
+                <div>
+                    <label>السعر (اختياري)</label>
+                    <input type="number" id="price" placeholder="مثال: 1500" />
+                </div>
+                <div>
+                    <label>رابط صورة (اختياري)</label>
+                    <input type="text" id="image" placeholder="https://example.com/photo.jpg" />
+                </div>
+
+                <div style="grid-column: 1/ -1">
+                    <label>تفاصيل الإعلان</label>
+                    <textarea id="description" placeholder="اكتب وصف قصير للعنصر..."></textarea>
+                </div>
+
+                <div style="
+              display: flex;
+              gap: 8px;
+              justify-content: flex-start;
+              grid-column: 1/ -1;
+            ">
+                    <button type="submit">نشر الإعلان</button>
+                    <button type="button" id="cancelEdit" class="secondary" style="display: none">
+              إلغاء التعديل
+            </button>
+                </div>
+            </form>
+        </section>
+
+        <section class="list" id="adsList" aria-live="polite"></section>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
